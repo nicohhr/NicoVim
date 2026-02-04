@@ -27,8 +27,21 @@ return {
         "nvim-lualine/lualine.nvim",
         dependencies = { "nvim-tree/nvim-web-devicons" },
         config = function()
+            local theme = require("lualine.themes.cyberdream")
+            local colors = require("cyberdream.colors").default
+
+            for _, section in pairs(theme) do
+                if type(section) == "table" then
+                    for _, part in pairs(section) do
+                        if type(part) == "table" and part.bg == "NONE" then
+                            part.bg = colors.bg_alt
+                        end
+                    end
+                end
+            end
+
             require("lualine").setup({
-                options = { theme = "tokyonight" },
+                options = { theme = theme },
             })
         end,
     },

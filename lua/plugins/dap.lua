@@ -23,11 +23,14 @@ return {
             require("dap-python").setup("python")
 
             -- Keymaps
-            vim.keymap.set("n", "<F5>", dap.continue, { desc = "Debug: Start/Continue" })
-            vim.keymap.set("n", "<F10>", dap.step_over, { desc = "Debug: Step Over" })
-            vim.keymap.set("n", "<F11>", dap.step_into, { desc = "Debug: Step Into" })
+            vim.keymap.set("n", "<F5>",    dap.continue,          { desc = "Debug: Start/Continue" })
+            vim.keymap.set("n", "<S-F5>",  dap.terminate,         { desc = "Debug: Stop" })
+            vim.keymap.set("n", "<F9>",    dap.toggle_breakpoint, { desc = "Debug: Toggle Breakpoint" })
+            vim.keymap.set("n", "<F10>",   dap.step_over,         { desc = "Debug: Step Over" })
+            vim.keymap.set("n", "<F11>",   dap.step_into,         { desc = "Debug: Step Into" })
+            vim.keymap.set("n", "<S-F11>", dap.step_out,          { desc = "Debug: Step Out" })
             vim.keymap.set("n", "<leader>db", dap.toggle_breakpoint, { desc = "Toggle Breakpoint" })
-            vim.keymap.set("n", "<leader>dt", dapui.toggle, { desc = "Toggle Debug UI" })
+            vim.keymap.set("n", "<leader>dt", dapui.toggle,       { desc = "Toggle Debug UI" })
 
             -- Breakpoint appearance
             vim.fn.sign_define("DapBreakpoint", { text = "●", texthl = "DiagnosticError" })

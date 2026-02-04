@@ -154,12 +154,25 @@ return {
         end,
     },
 
-    -- Indent guides
+    -- Chunk highlight (animated current block + indent guides)
     {
-        "lukas-reineke/indent-blankline.nvim",
-        main = "ibl",
+        "shellRaining/hlchunk.nvim",
+        event = { "BufReadPre", "BufNewFile" },
         config = function()
-            require("ibl").setup()
+            require("hlchunk").setup({
+                chunk = {
+                    enable = true,
+                    style = {
+                        { fg = "#5ea1ff" }, -- cyberdream blue
+                        { fg = "#ff6e5e" }, -- cyberdream red (errors)
+                    },
+                    duration = 200,
+                    delay    = 300,
+                },
+                indent = {
+                    enable = true,
+                },
+            })
         end,
     },
 }

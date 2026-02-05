@@ -24,7 +24,7 @@ return {
 
             -- 3. Init Mason-LSPConfig
             require("mason-lspconfig").setup({
-                ensure_installed = { "lua_ls", "ruff", "pyright" },
+                ensure_installed = { "lua_ls", "ruff", "pyright", "dockerls", "docker_compose_language_service" },
                 handlers = {
                     -- Default handler: all servers get cmp capabilities
                     function(server_name)

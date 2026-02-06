@@ -5,11 +5,21 @@ return {
         dependencies = {
             "williamboman/mason.nvim",
             "williamboman/mason-lspconfig.nvim",
+            "WhoIsSethDaniel/mason-tool-installer.nvim",
             "hrsh7th/cmp-nvim-lsp",
         },
         config = function()
             -- 1. Init Mason
             require("mason").setup()
+
+            -- 2. Ensure non-LSP tools are installed (formatters, linters)
+            require("mason-tool-installer").setup({
+                ensure_installed = {
+                    "markdownlint-cli2",
+                    "doctoc",
+                    "mdformat",
+                },
+            })
 
             -- Configure Diagnostics
             vim.diagnostic.config({
@@ -19,10 +29,10 @@ return {
                 severity_sort = true,
             })
 
-            -- 2. Capabilities (must be set before servers start)
+            -- 3. Capabilities (must be set before servers start)
             local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-            -- 3. Init Mason-LSPConfig
+            -- 4. Init Mason-LSPConfig
             require("mason-lspconfig").setup({
                 ensure_installed = { "lua_ls", "ruff", "pyright", "dockerls", "docker_compose_language_service" },
                 handlers = {
@@ -56,12 +66,11 @@ return {
                 },
             })
 
-            -- 4. Keymaps (Global Listener)
+            -- 5. Keymaps (Global Listener)
             -- This sets up keymaps whenever ANY LSP attaches to a buffer
             vim.api.nvim_create_autocmd("LspAttach", {
                 group = vim.api.nvim_create_augroup("UserLspConfig", { clear = true }),
                 callback = function(event)
-                    local client = vim.lsp.get_client_by_id(event.data.client_id)
                     local map = function(keys, func, desc)
                         vim.keymap.set("n", keys, func, { buffer = event.buf, desc = desc })
                     end
@@ -72,19 +81,6 @@ return {
                     map("K", vim.lsp.buf.hover, "Hover Documentation")
                     map("<leader>rn", vim.lsp.buf.rename, "Rename Symbol")
                     map("<leader>ca", vim.lsp.buf.code_action, "Code Action")
-                    map("<leader>f", function()
-                        vim.lsp.buf.format({ async = true })
-                    end, "Format")
-
-                    -- Format on Save
-                    if client and client.supports_method("textDocument/formatting") then
-                        vim.api.nvim_create_autocmd("BufWritePre", {
-                            buffer = event.buf,
-                            callback = function()
-                                vim.lsp.buf.format({ async = false, timeout_ms = 3000 })
-                            end,
-                        })
-                    end
                 end,
             })
         end,

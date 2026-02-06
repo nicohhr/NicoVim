@@ -45,4 +45,13 @@ return {
             })
         end,
     },
+    -- Markdown rendering
+    {
+        "MeanderingProgrammer/render-markdown.nvim",
+        dependencies = { "nvim-treesitter/nvim-treesitter", "echasnovski/mini.icons" },
+        ft = { "markdown" },
+        opts = {
+            pipe_table = { preset = "round" },
+        },
+    },
 }

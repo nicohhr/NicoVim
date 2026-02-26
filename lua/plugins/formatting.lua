@@ -26,8 +26,15 @@ return {
         default_format_opts = {
             lsp_format = "fallback",
         },
-        format_on_save = {
-            timeout_ms = 3000,
-        },
+        format_on_save = function(bufnr)
+            local file_name = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(bufnr), ":t")
+            if file_name == "SKILL.md" then
+                return
+            end
+
+            return {
+                timeout_ms = 3000,
+            }
+        end,
     },
 }

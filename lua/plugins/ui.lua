@@ -52,6 +52,10 @@ return {
         ft = { "markdown" },
         opts = {
             pipe_table = { preset = "round" },
+            ignore = function(buf)
+                local file_name = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(buf), ":t")
+                return file_name == "SKILL.md"
+            end,
         },
     },
 }

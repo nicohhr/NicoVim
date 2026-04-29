@@ -28,7 +28,11 @@ return {
         },
         format_on_save = function(bufnr)
             local file_name = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(bufnr), ":t")
+            local filetype = vim.bo[bufnr].filetype
             if file_name == "SKILL.md" then
+                return
+            end
+            if filetype == "markdown" then
                 return
             end
 

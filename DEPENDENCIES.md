@@ -20,7 +20,6 @@ LazyVim + Mason install most language tools. You still need system packages.
 brew install neovim ripgrep fd node git
 # Nerd Font via brew cask or manual install
 ```
-
 ## Mason-managed (auto via extras)
 
 - Python: `pyright`, `ruff`, `debugpy`

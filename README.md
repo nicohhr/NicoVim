@@ -16,8 +16,8 @@ Branch `lazyvim-rewrite` replaces the previous hand-rolled stack. Original confi
 │   ├── lazy.lua          # lazy.nvim setup
 │   └── options.lua       # 4-space indent override
 └── lua/plugins/
-    ├── colorscheme.lua   # cyberdream
-    ├── snacks.lua        # dashboard header + <leader>fg
+    ├── colorscheme.lua   # tokyonight (transparent)
+    ├── snacks.lua        # NicoVim dashboard header + <leader>fg
     └── mason.lua         # ensure debugpy
 ```
 
@@ -30,7 +30,7 @@ Branch `lazyvim-rewrite` replaces the previous hand-rolled stack. Original confi
 | `lang.markdown` | marksman, render-markdown, prettier/markdownlint/markdown-toc |
 | `dap.core` | nvim-dap + dap-ui |
 
-Manage with `:LazyExtras`. Theme: **cyberdream** (transparent).
+Manage with `:LazyExtras`. Theme: **tokyonight** (moon, transparent).
 
 ## Keymaps worth knowing
 

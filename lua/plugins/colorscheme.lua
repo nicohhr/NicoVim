@@ -1,18 +1,20 @@
 return {
   {
-    "scottmckendry/cyberdream.nvim",
-    lazy = false,
-    priority = 1000,
+    "folke/tokyonight.nvim",
+    lazy = true,
     opts = {
+      style = "moon",
       transparent = true,
-      italic_comments = true,
-      borderless_telescope = true,
+      styles = {
+        sidebars = "transparent",
+        floats = "transparent",
+      },
     },
   },
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "cyberdream",
+      colorscheme = "tokyonight",
     },
   },
 }

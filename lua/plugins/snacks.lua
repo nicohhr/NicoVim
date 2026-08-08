@@ -1,7 +1,21 @@
--- Prefer NicoVim <leader>fg = live grep over LazyVim's git-files binding
+-- Snacks: NicoVim dashboard header + <leader>fg live grep
 return {
   {
     "folke/snacks.nvim",
+    opts = {
+      dashboard = {
+        preset = {
+          header = [[
+███╗   ██╗██╗ ██████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗
+████╗  ██║██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║
+██╔██╗ ██║██║██║     ██║   ██║██║   ██║██║██╔████╔██║
+██║╚██╗██║██║██║     ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║
+██║ ╚████║██║╚██████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║
+╚═╝  ╚═══╝╚═╝ ╚═════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝
+]],
+        },
+      },
+    },
     keys = {
       {
         "<leader>fg",

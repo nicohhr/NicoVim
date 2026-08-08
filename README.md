@@ -11,12 +11,13 @@ Branch `lazyvim-rewrite` replaces the previous hand-rolled stack. Original confi
 ├── init.lua              # boots lazy.nvim / LazyVim
 ├── lazyvim.json          # enabled LazyExtras (managed)
 ├── lua/config/
-│   ├── autocmds.lua      # SKILL.md / markdown no-format-on-save
+│   ├── autocmds.lua
 │   ├── keymaps.lua       # NicoVim aliases + DAP F-keys + TOC
 │   ├── lazy.lua          # lazy.nvim setup
 │   └── options.lua       # 4-space indent override
 └── lua/plugins/
-    ├── markdown.lua      # skip render-markdown on SKILL.md
+    ├── colorscheme.lua   # cyberdream
+    ├── snacks.lua        # dashboard header + <leader>fg
     └── mason.lua         # ensure debugpy
 ```
 
@@ -29,7 +30,7 @@ Branch `lazyvim-rewrite` replaces the previous hand-rolled stack. Original confi
 | `lang.markdown` | marksman, render-markdown, prettier/markdownlint/markdown-toc |
 | `dap.core` | nvim-dap + dap-ui |
 
-Manage with `:LazyExtras`. Theme is LazyVim default (tokyonight).
+Manage with `:LazyExtras`. Theme: **cyberdream** (transparent).
 
 ## Keymaps worth knowing
 

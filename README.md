@@ -28,6 +28,7 @@ Branch `lazyvim-rewrite` replaces the previous hand-rolled stack. Original confi
 | `lang.python` | pyright + ruff, venv-selector (`<leader>cv`), dap-python |
 | `lang.docker` | dockerls, compose LS, hadolint |
 | `lang.markdown` | marksman, render-markdown, prettier/markdownlint/markdown-toc |
+| `lang.nix` | nixd LSP, nixfmt, statix, Tree-sitter highlighting |
 | `dap.core` | nvim-dap + dap-ui |
 
 Manage with `:LazyExtras`. Theme: **tokyonight** (moon, transparent).
@@ -49,7 +50,8 @@ Manage with `:LazyExtras`. Theme: **tokyonight** (moon, transparent).
 1. Open Neovim — Lazy installs plugins.
 2. Mason installs LSPs/tools from extras.
 3. Python: open a `.py` file, `<leader>cv` if the wrong interpreter is active.
-4. Optional: `:checkhealth lazyvim`
+4. Nix: open a `.nix` file; `nixd` attaches automatically and LazyVim's standard format action uses nixfmt.
+5. Optional: `:checkhealth lazyvim`
 
 ## Rollback
 

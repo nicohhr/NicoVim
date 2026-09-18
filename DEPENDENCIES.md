@@ -13,11 +13,12 @@ LazyVim + Mason install most language tools. You still need system packages.
 - **Nerd Font** — icons (e.g. JetBrainsMono Nerd Font)
 - **Python 3** — host / fallback; project envs via uv/venv
 - **uv** (optional) — preferred Python toolchain; venv-selector understands it
+- **Nix** — provides the user profile containing `nixd`
 
 ### macOS
 
 ```bash
-brew install neovim ripgrep fd node git
+brew install neovim ripgrep fd node git nixfmt
 # Nerd Font via brew cask or manual install
 ```
 ## Mason-managed (auto via extras)
@@ -25,6 +26,7 @@ brew install neovim ripgrep fd node git
 - Python: `pyright`, `ruff`, `debugpy`
 - Docker: `docker-language-server`, `docker-compose-language-service`, `hadolint`
 - Markdown: `marksman`, `markdownlint-cli2`, `markdown-toc`, `prettier`
+- Nix: `statix` (Mason); `nixd` (Nix user profile); `nixfmt` (Homebrew on macOS)
 - Core: `stylua`, `shfmt`, …
 
 Run `:Mason` to inspect.
